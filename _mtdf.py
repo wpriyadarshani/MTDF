@@ -112,9 +112,33 @@ class MTDF(object):
 
         return mean
 
-    def variance(self):
+    def calcMaxMinBoundaries(self):
 
+        new_boundary = []
+        
+       
+        r = []
+        g = []
+        b = []
 
+        
+        for i in self.minority:
+            
+            r.append(i[0])
+            g.append(i[1])
+            b.append(i[2])
+
+            
+        
+        r.sort()
+        g.sort()
+        b.sort()
+
+        Min = (r[0],g[0],b[0])
+        Max = (r[-1],g[-1],b[-1])
+
+        return Min,Max
+       
 
 
 
@@ -128,8 +152,9 @@ if __name__ == "__main__":
 
 
     m = MTDF(village_pixels)
-    m.variance()
 
+    print m.calcMaxMinBoundaries()
+   
    
 
 
